@@ -21,6 +21,7 @@ public class ThreadMapperFactoryImp implements ThreadMapperFactory{
 		currentThread=0;
 	}
 
+
 	public ExecutingThread getThread(String jobId) throws ThreadException{
 		
 		if(threadMap.containsKey(jobId)){
@@ -28,6 +29,10 @@ public class ThreadMapperFactoryImp implements ThreadMapperFactory{
 		}
 		
 		else{
+			/**
+			 * Here assumption is thread pool size is equal to number of unique job's. In other case instead of failing this we
+			 * need to map multiple job's to same thread.In other case job can be mapped to thread id by using (job ID)%thread pool size
+			 */
 			if(currentThread>=threads.length){
 				throw new ThreadException("Number of jobs "+currentThread+" are more than pool size: " +
 						""+threads.length);
