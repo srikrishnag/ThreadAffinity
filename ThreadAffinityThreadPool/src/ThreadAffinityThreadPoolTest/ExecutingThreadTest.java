@@ -2,6 +2,7 @@ package ThreadAffinityThreadPoolTest;
 
 import static org.junit.Assert.*;
 
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -25,7 +26,7 @@ public class ExecutingThreadTest {
 	    System.setOut(null);	 
 	}
 
-	@Test(timeout = 100)
+	@Test(timeout = 4001)
 	public void testRunWithEmptyQueue() {	    
 		ExecutingThread t = new ExecutingThread();
 		t.doExecution();	

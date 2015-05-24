@@ -37,7 +37,7 @@ public class ExecutingThread implements Runnable{
 		if(queue.isEmpty()){
 			System.out.print("Job queue is empty");
 			  try {
-				Thread.sleep(4000);
+				Thread.sleep(4);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
