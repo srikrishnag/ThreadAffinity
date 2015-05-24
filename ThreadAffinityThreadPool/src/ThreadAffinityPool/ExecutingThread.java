@@ -11,7 +11,7 @@ import java.util.Queue;
  * @author krishna
  *
  */
-class ExecutingThread implements Runnable{
+public class ExecutingThread implements Runnable{
 
 	private Queue<Runnable> queue;
 	private boolean stop;
@@ -29,23 +29,29 @@ class ExecutingThread implements Runnable{
 	@Override
 	public void run() {
 		while(!stop){
-			if(queue.isEmpty()){
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {				
-					e.printStackTrace();
-				}
-				continue;
-			}
-			else{
-				queue.remove().run();							
+			doExecution();
+		}
+	}
+
+	public void doExecution(){
+		if(queue.isEmpty()){
+			System.out.print("Job queue is empty");
+			  try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
-
+		else{
+			queue.remove().run();	
+			System.out.print("Removed job from queue");
+		}
 	}
-	
+
 	public void stopGracefully(){
 		stop = true;
+		System.out.print("Stopping thread");
 	}
 
 }

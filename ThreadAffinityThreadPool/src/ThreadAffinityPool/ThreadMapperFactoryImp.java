@@ -9,7 +9,7 @@ import java.util.Map;
  * @author krishna
  *
  */
-class ThreadMapperFactoryImp implements ThreadMapperFactory{
+public class ThreadMapperFactoryImp implements ThreadMapperFactory{
 
 	ExecutingThread[] threads;
 	int currentThread;

@@ -5,7 +5,7 @@ package ThreadAffinityPool;
  * @author krishna
  *
  */
-class ThreadPoolWithJobAffinityImpl implements ThreadPoolWithJobAffinity{
+public class ThreadPoolWithJobAffinityImpl implements ThreadPoolWithJobAffinity{
 
 	ExecutingThread threadpool[];	
 	ThreadMapperFactory threadPoolFactory;
@@ -33,6 +33,7 @@ class ThreadPoolWithJobAffinityImpl implements ThreadPoolWithJobAffinity{
 		try {
 			ExecutingThread thread = threadPoolFactory.getThread(jobId);				
 			thread.getQueue().add(r);
+			System.out.print("Submitted job "+jobId+" to thread pool");
 		} catch (ThreadException e) {		
 			e.printStackTrace();
 		}
