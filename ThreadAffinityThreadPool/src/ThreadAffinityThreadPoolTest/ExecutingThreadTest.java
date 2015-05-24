@@ -26,7 +26,7 @@ public class ExecutingThreadTest {
 	    System.setOut(null);	 
 	}
 
-	@Test(timeout = 4001)
+	@Test(timeout = 100)
 	public void testRunWithEmptyQueue() {	    
 		ExecutingThread t = new ExecutingThread();
 		t.doExecution();	
